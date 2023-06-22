@@ -12,6 +12,11 @@ spring:
     url: jdbc:mysql://localhost:3306/easy_web
     username: root
     password: 123456
+  mvc:
+    pathmatch:
+      # 指定URL路径匹配的策略--Ant--风格，默认的URL路径匹配的策略是AntPathMatcher
+      # 是为了兼容swagger
+      matching-strategy: ANT_PATH_MATCHER
   # 设置 session 失效时间（分钟） 存储类型为 redis
   session:
     timeout: 86400

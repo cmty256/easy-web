@@ -8,7 +8,8 @@ package com.chenmeng.project.common;
  */
 public enum ErrorCode {
 
-    params_error(40000, "请求参数错误"), // params_error
+    SUCCESS(0, "ok"),
+    PARAMS_ERROR(40000, "请求参数错误"), // params_error
 
     NOT_LOGIN_ERROR(40100, "未登录"), // not_login_error
 
@@ -20,7 +21,7 @@ public enum ErrorCode {
 
     SYSTEM_ERROR(50000, "系统内部异常"), // system_error
 
-    OPERTATION_ERROR(50001, "操作失败"); // operation_error
+    OPERATION_ERROR(50001, "操作失败"); // operation_error
 
     /**
      * 状态码
