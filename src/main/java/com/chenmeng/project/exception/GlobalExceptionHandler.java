@@ -1,8 +1,8 @@
 package com.chenmeng.project.exception;
 
 import com.chenmeng.project.common.BaseResponse;
-import com.chenmeng.project.common.ErrorCode;
-import com.chenmeng.project.common.ResultUtils;
+import com.chenmeng.project.common.enums.ErrorCode;
+import com.chenmeng.project.common.utils.ResultUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;

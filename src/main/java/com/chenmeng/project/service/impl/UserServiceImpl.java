@@ -5,7 +5,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.plugins.pagination.PageDTO;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.chenmeng.project.common.ErrorCode;
+import com.chenmeng.project.common.enums.ErrorCode;
 import com.chenmeng.project.exception.BusinessException;
 import com.chenmeng.project.model.dto.user.UserQueryRequest;
 import com.chenmeng.project.model.entity.User;

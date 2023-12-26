@@ -1,5 +1,6 @@
 package com.chenmeng.project.common;
 
+import com.chenmeng.project.common.enums.ErrorCode;
 import lombok.Data;
 
 import java.io.Serializable;

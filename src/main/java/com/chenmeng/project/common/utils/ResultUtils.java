@@ -1,4 +1,7 @@
-package com.chenmeng.project.common;
+package com.chenmeng.project.common.utils;
+
+import com.chenmeng.project.common.BaseResponse;
+import com.chenmeng.project.common.enums.ErrorCode;
 
 /**
  * 返回结果工具类

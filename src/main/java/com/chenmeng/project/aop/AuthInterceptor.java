@@ -2,7 +2,7 @@ package com.chenmeng.project.aop;
 
 import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
 import com.chenmeng.project.annotaiion.AuthCheck;
-import com.chenmeng.project.common.ErrorCode;
+import com.chenmeng.project.common.enums.ErrorCode;
 import com.chenmeng.project.exception.BusinessException;
 import com.chenmeng.project.model.entity.User;
 import com.chenmeng.project.service.UserService;

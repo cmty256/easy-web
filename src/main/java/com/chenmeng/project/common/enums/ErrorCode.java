@@ -1,4 +1,4 @@
-package com.chenmeng.project.common;
+package com.chenmeng.project.common.enums;
 
 /**
  * 统一错误码
@@ -8,6 +8,9 @@ package com.chenmeng.project.common;
  */
 public enum ErrorCode {
 
+    /**
+     * 错误码枚举
+     */
     SUCCESS(0, "ok"),
     PARAMS_ERROR(40000, "请求参数错误"), // params_error
 

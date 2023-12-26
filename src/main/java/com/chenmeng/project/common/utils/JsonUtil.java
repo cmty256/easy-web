@@ -1,4 +1,4 @@
-package com.chenmeng.project.common;
+package com.chenmeng.project.common.utils;
 
 
 import com.fasterxml.jackson.core.JsonParser;

@@ -1,6 +1,6 @@
 package com.chenmeng.project.exception;
 
-import com.chenmeng.project.common.ErrorCode;
+import com.chenmeng.project.common.enums.ErrorCode;
 
 /**
  * 自定义异常类

@@ -1,4 +1,4 @@
-package com.chenmeng.project.common;
+package com.chenmeng.project.common.utils;
 
 import org.springframework.core.DefaultParameterNameDiscoverer;
 import org.springframework.core.MethodParameter;
