@@ -154,7 +154,9 @@ public class RequestLogAspect {
                         } else if (JsonUtil.canSerialize(value)) {
                             Map<String, Object> dtoMap = new HashMap<>(16);
                             for (Field field : value.getClass().getDeclaredFields()) {
+                                // 设置字段的可访问性，使得即使该字段是私有的，也可以通过反射来访问和修改它的值。
                                 field.setAccessible(true);
+                                // 获取这个参数中的字段值
                                 Object fieldValue = field.get(value);
                                 if (field.getType().isAssignableFrom(MultipartFile.class) && fieldValue != null) {
                                     MultipartFile multipartFile = (MultipartFile) fieldValue;
