@@ -152,22 +152,19 @@ public class RequestLogAspect {
                         } else if (value instanceof InputStreamSource) {
                             paraMap.put(paraName, "InputStreamSource");
                         } else if (JsonUtil.canSerialize(value)) {
-                            Map<String, Object> dtoMap = new HashMap<>(16);
-                            for (Field field : value.getClass().getDeclaredFields()) {
-                                // 设置字段的可访问性，使得即使该字段是私有的，也可以通过反射来访问和修改它的值。
-                                field.setAccessible(true);
-                                // 获取这个参数中的字段值
-                                Object fieldValue = field.get(value);
-                                if (field.getType().isAssignableFrom(MultipartFile.class) && fieldValue != null) {
-                                    MultipartFile multipartFile = (MultipartFile) fieldValue;
-                                    String multipartFileFiledName = multipartFile.getName();
-                                    String fileName = multipartFile.getOriginalFilename();
-                                    dtoMap.put(multipartFileFiledName, fileName);
-                                } else {
-                                    dtoMap.put(field.getName(), fieldValue);
-                                }
+                            // 获取请求头中的 Content-Type
+                            HttpServletRequest request = WebUtil.getRequest();
+                            String contentType = request.getHeader("Content-Type");
+                            // 内容类型判断
+                            if (contentType.contains("multipart/form-data")) {
+                                // 处理 multipart/form-data 类型的逻辑
+                                processMultipartData(paraMap, value, paraName);
+                            } else {
+                                // 处理其他类型的逻辑，直接将参数放进 paraMap
+                                paraMap.put(paraName, value);
                             }
-                            paraMap.put(paraName, dtoMap);
+
+
                         } else {
                             paraMap.put(paraName, "此参数不能序列化为json");
                         }
@@ -188,6 +185,32 @@ public class RequestLogAspect {
             beforeReqArgs.add(JsonUtil.toJson(requestBodyValue));
         }
 
+    }
+
+    /**
+     * 处理包含文件类型字段的 DTO 类数据
+     * @param paraMap
+     * @param value
+     * @param paraName
+     * @throws IllegalAccessException
+     */
+    private static void processMultipartData(Map<String, Object> paraMap, Object value, String paraName) throws IllegalAccessException {
+        Map<String, Object> dtoMap = new HashMap<>(16);
+        for (Field field : value.getClass().getDeclaredFields()) {
+            // 设置字段的可访问性，使得即使该字段是私有的，也可以通过反射来访问和修改它的值。
+            field.setAccessible(true);
+            // 获取这个参数中的字段值
+            Object fieldValue = field.get(value);
+            if (field.getType().isAssignableFrom(MultipartFile.class) && fieldValue != null) {
+                MultipartFile multipartFile = (MultipartFile) fieldValue;
+                String multipartFileFiledName = multipartFile.getName();
+                String fileName = multipartFile.getOriginalFilename();
+                dtoMap.put(multipartFileFiledName, fileName);
+            } else {
+                dtoMap.put(field.getName(), fieldValue);
+            }
+        }
+        paraMap.put(paraName, dtoMap);
     }
 
     public void logIngHeaders(HttpServletRequest request, StringBuilder beforeReqLog, List<Object> beforeReqArgs) {
