@@ -23,7 +23,9 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @Profile("dev")
 public class Knife4jConfig {
 
-    // 访问路径为 http://localhost:7529/api/doc.html
+    /**
+     * 访问路径为：http://localhost:7529/api/doc.html
+     */
     @Bean
     public Docket defaultApi2() {
         return new Docket(DocumentationType.SWAGGER_2)
