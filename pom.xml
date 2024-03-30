@@ -12,7 +12,7 @@
     <artifactId>easy-web</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>easy-web</name>
-    <description>Spring Boot 后端项目脚手架</description>
+    <description>Spring Boot 后端项目脚手架（单体版）</description>
     <properties>
         <java.version>1.8</java.version>
     </properties>
