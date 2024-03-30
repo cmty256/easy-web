@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 /**
  * MyBatis Plus 配置
  *
- * @author 沉梦听雨
+ * @author chenmeng
  * @date 2023/06/20
  */
 @Configuration

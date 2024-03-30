@@ -3,7 +3,7 @@ package com.chenmeng.project.common.enums;
 /**
  * 统一错误码
  *
- * @author 沉梦听雨
+ * @author chenmeng
  * @date 2023/06/17
  */
 public enum ErrorCode {

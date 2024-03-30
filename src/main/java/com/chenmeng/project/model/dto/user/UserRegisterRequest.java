@@ -7,7 +7,7 @@ import java.io.Serializable;
 /**
  * 用户注册请求体
  *
- * @author 沉梦听雨
+ * @author chenmeng
  * @date 2023/06/18
  */
 @Data

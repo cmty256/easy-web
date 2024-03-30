@@ -6,7 +6,7 @@ import org.springframework.web.multipart.MultipartFile;
 /**
  * 文件DTO
  *
- * @author 沉梦听雨
+ * @author chenmeng
  **/
 @Data
 public class FileDTO {
